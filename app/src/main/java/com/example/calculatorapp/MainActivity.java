@@ -43,13 +43,13 @@ public class MainActivity extends AppCompatActivity {
         int number2 = Integer.parseInt(numTwo);
         int solution;
         if(problem == 1){
-            
-        }else if(){
-            
-        }else if(){
-            
-        }else if(){
-            
+            solution = number1 + number2;
+        }else if(problem == 2){
+            solution = number1 - number2;
+        }else if(problem == 3){
+            solution = number1 * number2;
+        }else if(problem == 4){
+            solution = number1 / number2;
         }
         String wordSolution = ("" + solution);
         EditText editText = (EditText) findViewById(R.id.answer);
