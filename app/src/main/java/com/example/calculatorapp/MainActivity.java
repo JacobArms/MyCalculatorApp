@@ -14,8 +14,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+    int problem = 0;
+    public void add(){
+        problem = 1;
+        calculate();
+    }
+    public void subtract(){
+        problem = 2;
+        calculate();
+    }
+    public void multiply(){
+        problem = 3;
+        calculate();
+    }
+    public void divide(){
+        problem = 4;
+        calculate();
+    }
 
-    public void Calculate(){
+    public void calculate(){
         Intent intent = getIntent();
         String showName = intent.getStringExtra("");
         TextView firstNum = findViewById(R.id.firstNumber);
@@ -25,7 +42,13 @@ public class MainActivity extends AppCompatActivity {
         int number1 = Integer.parseInt(numOne);
         int number2 = Integer.parseInt(numTwo);
         int solution;
-        if(){
+        if(problem == 1){
+            
+        }else if(){
+            
+        }else if(){
+            
+        }else if(){
             
         }
         String wordSolution = ("" + solution);
