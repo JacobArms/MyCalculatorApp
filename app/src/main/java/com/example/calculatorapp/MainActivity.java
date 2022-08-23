@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -15,19 +16,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
     int problem = 0;
-    public void add(){
+    public void add(View view){
         problem = 1;
         calculate();
     }
-    public void subtract(){
+    public void subtract(View view){
         problem = 2;
         calculate();
     }
-    public void multiply(){
+    public void multiply(View view){
         problem = 3;
         calculate();
     }
-    public void divide(){
+    public void divide(View view){
         problem = 4;
         calculate();
     }
