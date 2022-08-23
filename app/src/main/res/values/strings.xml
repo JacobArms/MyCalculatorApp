@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Calculator App</string>
+    <string name="app_name">Jacobs Calcinator</string>
+    <string name="developer">J.Arms</string>
 </resources>
