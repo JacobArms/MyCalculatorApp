@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         String numTwo = secondNum.getText().toString();
         int number1 = Integer.parseInt(numOne);
         int number2 = Integer.parseInt(numTwo);
-        int solution;
+        int solution = 0;
         if(problem == 1){
             solution = number1 + number2;
         }else if(problem == 2){
