@@ -2,7 +2,10 @@ package com.example.calculatorapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,8 +18,8 @@ public class MainActivity extends AppCompatActivity {
     public void Calculate(){
         Intent intent = getIntent();
         String showName = intent.getStringExtra("");
-        TextView firstNum = findViewById(R.firstNumber);
-        TextView secondNum = findViewById(R.secondNumber);
+        TextView firstNum = findViewById(R.id.firstNumber);
+        TextView secondNum = findViewById(R.id.secondNumber);
         String numOne = firstNum.getText().toString();
         String numTwo = secondNum.getText().toString();
         int number1 = Integer.parseInt(numOne);
