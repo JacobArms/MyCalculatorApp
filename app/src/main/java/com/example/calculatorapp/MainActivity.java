@@ -11,6 +11,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class MainActivity extends AppCompatActivity {
 
     // FOUND ONLINE
@@ -51,14 +54,32 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void calculate(){
+        int number1 = 0;
+        int number2 = 0;
+        int i = 1;
         Intent intent = getIntent();
+        EditText alertText = (EditText) findViewById(R.id.alert);
         String showName = intent.getStringExtra("");
         TextView firstNum = findViewById(R.id.firstNumber);
         TextView secondNum = findViewById(R.id.secondNumber);
         String numOne = firstNum.getText().toString();
         String numTwo = secondNum.getText().toString();
-        int number1 = Integer.parseInt(numOne);
-        int number2 = Integer.parseInt(numTwo);
+        while(i == 1){
+            try{
+                if(numTwo == null){
+                    alertText.setText("PLEASE ENTER INTEGERS");
+                }else if(numOne == null){
+                    alertText.setText("PLEASE ENTER INTEGERS");
+                }
+                number1 = Integer.parseInt(numOne);
+                number2 = Integer.parseInt(numTwo);
+                i = 2;
+            }catch (InputMismatchException e){
+                alertText.setText("PLEASE ENTER INTEGERS ONLY");
+            }
+        }
+//        number1 = Integer.parseInt(numOne);
+//        number2 = Integer.parseInt(numTwo);
         int solution = 0;
         if(problem == 1){
             solution = number1 + number2;
@@ -67,7 +88,12 @@ public class MainActivity extends AppCompatActivity {
         }else if(problem == 3){
             solution = number1 * number2;
         }else if(problem == 4){
-            solution = number1 / number2;
+            if(number2 == 0){
+                EditText editText = (EditText) findViewById(R.id.answer);
+                editText.setText("Undefined");
+            }else{
+                solution = number1 / number2;
+            }
         }
         String wordSolution = ("" + solution);
         EditText editText = (EditText) findViewById(R.id.answer);
