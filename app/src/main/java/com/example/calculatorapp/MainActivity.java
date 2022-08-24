@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         }
 //        number1 = Integer.parseInt(numOne);
 //        number2 = Integer.parseInt(numTwo);
-        int solution = 0;
+        double solution = 0;
         if(problem == 1){
             solution = number1 + number2;
         }else if(problem == 2){
@@ -96,6 +96,12 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         String wordSolution = ("" + solution);
+        if(problem!=4 && wordSolution.charAt(wordSolution.length()-1)==1){
+            wordSolution = wordSolution.substring(0,wordSolution.length()-2);
+        }
+        if(problem == 4 && wordSolution.length()>7){
+            wordSolution = wordSolution.substring(0,7);
+        }
         EditText editText = (EditText) findViewById(R.id.answer);
         editText.setText(wordSolution);
     }
