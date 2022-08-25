@@ -57,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
         int number1 = 0;
         int number2 = 0;
         int i = 1;
+        // In theory this try-catch checks to see if the edit text boxes are empty and prompts the user
+        // to input integers before clicking the buttons
         Intent intent = getIntent();
         EditText alertText = (EditText) findViewById(R.id.alert);
         String showName = intent.getStringExtra("");
@@ -64,15 +66,18 @@ public class MainActivity extends AppCompatActivity {
         TextView secondNum = findViewById(R.id.secondNumber);
         String numOne = firstNum.getText().toString();
         String numTwo = secondNum.getText().toString();
+        // This try-catch checks to see if the edit text boxes are empty and prompts the user
+        // to input integers before clicking the buttons
         while(i == 1){
             try{
-                if(numTwo == null){
+                if(numOne.matches("")){
                     alertText.setText("PLEASE ENTER INTEGERS");
-                }else if(numOne == null){
+                }else if(numTwo.matches("")){
                     alertText.setText("PLEASE ENTER INTEGERS");
+                }else{
+                    number1 = Integer.parseInt(numOne);
+                    number2 = Integer.parseInt(numTwo);
                 }
-                number1 = Integer.parseInt(numOne);
-                number2 = Integer.parseInt(numTwo);
                 i = 2;
             }catch (InputMismatchException e){
                 alertText.setText("PLEASE ENTER INTEGERS ONLY");
@@ -81,21 +86,18 @@ public class MainActivity extends AppCompatActivity {
 //        number1 = Integer.parseInt(numOne);
 //        number2 = Integer.parseInt(numTwo);
         double solution = 0;
-        if(problem == 1){
+        //Checks to see what math equation the user wants
+        if(problem == 1){   //Addition
             solution = number1 + number2;
-        }else if(problem == 2){
+        }else if(problem == 2){ //Subtraction
             solution = number1 - number2;
-        }else if(problem == 3){
+        }else if(problem == 3){ //Multiplication
             solution = number1 * number2;
-        }else if(problem == 4){
-            if(number2 == 0){
-                EditText editText = (EditText) findViewById(R.id.answer);
-                editText.setText("Undefined");
-            }else{
-                solution = number1 / number2;
-            }
+        }else if(problem == 4){ //Division
+            solution = (double) number1 / number2;
         }
         String wordSolution = ("" + solution);
+        // Rounds the decimal of a large decimal number to the first 6 numbers
         if(problem!=4 && wordSolution.charAt(wordSolution.length()-1)==1){
             wordSolution = wordSolution.substring(0,wordSolution.length()-2);
         }
